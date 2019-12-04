@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { HttpService} from './http.service';
 
 import {Emoji} from './emoji';
-import { ConsoleReporter } from 'jasmine';
 
 @Component({
   selector: 'app-root',
@@ -17,6 +16,8 @@ export class AppComponent implements OnInit {
   response: any;
   emojis: Emoji[] = [];
   emoji: Emoji;
+  name: string;
+  age: number;
 
   menuItems = ['Все', 'Любимые', 'Удалённые'];
  

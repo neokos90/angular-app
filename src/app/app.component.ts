@@ -15,10 +15,10 @@ export class AppComponent implements OnInit {
    
   response: any;
   emojis: Emoji[] = [];
+  emoji: Emoji;
 
   menuItems = ['Все', 'Любимые', 'Удалённые'];
  
-
   constructor(private httpService: HttpService){}
     
   ngOnInit(){
@@ -30,21 +30,13 @@ export class AppComponent implements OnInit {
 
           console.log(keyName);
           console.log(this.response[keyName]);
-          let emoji = {
-            "name": String,
-            "url": String,
-            "status": Number
+          this.emoji = {
+            "name": String(keyName),
+            "url": String(this.response[keyName]),
+            "status": 1
           };
 
-          let path = this.response[keyName];
-          Object.defineProperties(emoji, {
-            "name": {value: keyName, writable: true},
-            "url": {value: path, writable: true},
-            "status": {value: 1, writable: true}
-          });
-
-          this.emojis.push(emoji);
-
+          this.emojis.push(this.emoji);
         }
       
       // console.log(this.emojis);

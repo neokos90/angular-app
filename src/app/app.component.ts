@@ -8,6 +8,7 @@ import { ConsoleReporter } from 'jasmine';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css'],
   providers: [HttpService]
 })
 
@@ -30,6 +31,7 @@ export class AppComponent implements OnInit {
 
           console.log(keyName);
           console.log(this.response[keyName]);
+
           this.emoji = {
             "name": String(keyName),
             "url": String(this.response[keyName]),
@@ -37,8 +39,8 @@ export class AppComponent implements OnInit {
           };
 
           this.emojis.push(this.emoji);
-        }
-      
+
+        }    
       // console.log(this.emojis);
     }
         );

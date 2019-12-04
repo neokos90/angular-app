@@ -28,44 +28,26 @@
           <tbody>
             <tr *ngFor="let emoji of emojis">
               <td>
-                <div class="row">
-                  <div class="col-sm-2">
-                      {{emoji.name}}
-                  </div>
-                </div>
+                {{emoji.name}}
               </td>
               <td>
-                <div class="row">
-                  <div class="col-sm-5">
-                      {{emoji.url}}
-                  </div>
-                </div>
+                {{emoji.url}}
               </td>
               <td>
-                  <div class="row">
-                    <div class="col-sm-3">
-                        <img src="{{emoji.url}}" alt="Нет">
-                    </div>
-                  </div>
+                <img src="{{emoji.url}}" alt="Не удалось загрузить картинку" height="25" width="25"> 
+                <span class="large">
+                  <img src="{{emoji.url}}" alt="{{emoji.name}}" class="large-image">
+                </span>
+              </td>
+                <td>
+                  В избранное
                 </td>
                 <td>
-                    <div class="row">
-                      <div class="col-sm-1">
-                          В избранное
-                      </div>
-                    </div>
-                </td>
-                <td>
-                  <div class="row">
-                    <div class="col-sm-1">
-                        Удалить
-                    </div>
-                  </div>
+                  Удалить
                 </td>
             </tr>
           </tbody>
         </table>
-
     </div>
   </div>
 </div>

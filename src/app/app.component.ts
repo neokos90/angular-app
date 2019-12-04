@@ -1,33 +1,61 @@
 import { Component, OnInit } from '@angular/core';
 
 import { HttpService} from './http.service';
-import {User} from './user';
 
-import {Menu} from './menu';
+import {Emoji} from './emoji';
 import { ConsoleReporter } from 'jasmine';
 
 @Component({
   selector: 'app-root',
-  template: `<ul>
-  <li>
-  <p>Имя пользователя: {{emojis}}</p>
-  <p>Возраст пользователя: {{emojis}}</p>
-  </li>
-</ul>`,
+  templateUrl: './app.component.html',
   providers: [HttpService]
 })
 
 export class AppComponent implements OnInit { 
    
-  emojis: User;
+  response: any;
+  emojis: Emoji[] = [];
+
+  menuItems = ['Все', 'Любимые', 'Удалённые'];
+ 
 
   constructor(private httpService: HttpService){}
     
   ngOnInit(){
         
-      this.httpService.getData().subscribe((data:User) => {this.emojis = data;
-        console.log(this.emojis)});
+      this.httpService.getData().subscribe((data) => {this.response = data;
+        console.log(this.response);
+        
+        for(let keyName in this.response){
+
+          console.log(keyName);
+          console.log(this.response[keyName]);
+          let emoji = {
+            "name": String,
+            "url": String,
+            "status": Number
+          };
+
+          let path = this.response[keyName];
+          Object.defineProperties(emoji, {
+            "name": {value: keyName, writable: true},
+            "url": {value: path, writable: true},
+            "status": {value: 1, writable: true}
+          });
+
+          this.emojis.push(emoji);
+
+        }
+      
+      // console.log(this.emojis);
+    }
+        );
+
+
   }
+
+
+
 }
 
 

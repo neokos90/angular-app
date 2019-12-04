@@ -1,11 +1,11 @@
-<div class="container-fluid">
+<div class="container">
   <div class="row mt-5">
 
     <!-- menu -->
     <div class="col-sm-4">
       <ul class="nav nav-pills flex-column">
-        <li *ngFor="let menuItem of menuList" class="nav-item">
-          <a class="nav-link" href="#">{{menuItem.name}}</a> 
+        <li *ngFor="let menuItem of menuItems" class="nav-item">
+          <a class="nav-link" href="#">{{menuItem}}</a> 
         </li>
       </ul>
     </div>
@@ -26,18 +26,49 @@
       <!-- table --> 
         <table class="table table-bordered table-hover table-striped">
           <tbody>
-            <tr>
-              <td>Имя</td>
-              <td>Ссылка</td>
-              <td>Превью</td>
-              <td>В избранное</td>
-              <td>Удалить</td>
+            <tr *ngFor="let emoji of emojis">
+              <td>
+                <div class="row">
+                  <div class="col-sm-2">
+                      {{emoji.name}}
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="row">
+                  <div class="col-sm-5">
+                      {{emoji.url}}
+                  </div>
+                </div>
+              </td>
+              <td>
+                  <div class="row">
+                    <div class="col-sm-3">
+                        <img src="{{emoji.url}}" alt="Нет">
+                    </div>
+                  </div>
+                </td>
+                <td>
+                    <div class="row">
+                      <div class="col-sm-1">
+                          В избранное
+                      </div>
+                    </div>
+                </td>
+                <td>
+                  <div class="row">
+                    <div class="col-sm-1">
+                        Удалить
+                    </div>
+                  </div>
+                </td>
             </tr>
           </tbody>
         </table>
+
     </div>
   </div>
 </div>
 
-<p *ngIf="menuList.length > 3">There are many heroes!</p>
+<!-- <p *ngIf="menuList.length > 3">There are many heroes!</p> -->
 

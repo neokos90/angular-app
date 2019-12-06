@@ -5,18 +5,21 @@ import { FormsModule } from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
-import { ChildComponent } from './search.component';
+import { SearchComponent } from './search.component';
 
 import { HttpClientModule }   from '@angular/common/http';
+
+// search module
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 @NgModule({
   declarations: [
-    AppComponent, ChildComponent
+    AppComponent,
 
   ],
   imports: [
-    BrowserModule, NgbModule, FormsModule, HttpClientModule
+    BrowserModule, NgbModule, FormsModule, HttpClientModule, Ng2SearchPipeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

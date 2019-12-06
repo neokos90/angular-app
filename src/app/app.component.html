@@ -5,7 +5,7 @@
     <div class="col-sm-4">
       <ul class="nav nav-pills flex-column">
         <li *ngFor="let menuItem of menuItems" class="nav-item">
-          <a class="nav-link" href="#">{{menuItem}}</a> 
+          <a class="nav-link" href="#">{{menuItem.name}}</a> 
         </li>
       </ul>
     </div>
@@ -13,16 +13,24 @@
     <div class="col-sm-8">
 
       <!-- search -->
-      <child-comp [userName]="name" [userAge]="age"></child-comp>
-                <input type="text" [(ngModel)]="name" />
-     
-                
+
+      <div class="d-flex justify-content-between">
+          <div>
+              <h3>{{currentMenuItemName}}</h3>
+          </div>
+          <div>
+            <input type="text" class="form-control form-control-sm" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Поиск"/>
+          </div>     
+          
+        </div>
+      <!-- <search-comp [currentMenuItemName]="currentMenuItemName" [currentMenuItem]="currentMenuItem"></search-comp> -->
+                <!-- <input type="text" [(ngModel)]="name" />            -->
 
 
       <!-- table --> 
         <table class="table table-bordered table-hover table-striped">
           <tbody>
-            <tr *ngFor="let emoji of emojis">
+            <tr *ngFor="let emoji of emojis | filter:searchText">
               <td>
                 {{emoji.name}}
               </td>

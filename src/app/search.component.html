@@ -1,7 +1,13 @@
-<!-- <h4>Текущая страница</h4>
-    <div>
-      <input type="text" [(ngModel)]="emojiName" placeholder="Поиск"/>
-    </div> -->
+
+    <div class="d-flex justify-content-between">
+      <div>
+          <h3>{{currentMenuItemName}}</h3>
+      </div>
+      <div>
+        <input type="text" class="form-control form-control-sm" #search (keyup.enter)="onEnter(search.value)" placeholder="Поиск" />
+      </div>     
+      
+    </div>
 
     <!-- <input #box (keyup)="onKey(box.value)">
     <p>{{values}}</p> -->

@@ -1,6 +1,9 @@
 export class Emoji {
+    
     constructor(
         public name: string,
         public url: string,
-        public status: number) {}
+        // enable values for status 0 - deleted, 1 - unchecked, 2 - liked
+        public status: number 
+        ) {}
 }

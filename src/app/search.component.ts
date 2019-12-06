@@ -1,11 +1,16 @@
 import { Input, Component} from '@angular/core';
       
 @Component({
-    selector: 'child-comp',
-    template: `<p>Имя пользователя: {{userName}}</p>
-              <p>Возраст пользователя: {{userAge}}</p>`
+    selector: 'search-comp',
+    templateUrl: './search.component.html' 
 })
-export class ChildComponent{ 
-    @Input() userName: string;
-    @Input() userAge: number;
+export class SearchComponent { 
+
+    @Input() currentMenuItemName: string;
+    @Input() currentMenuItem: number;
+
+    emojiName = '';
+    onEnter(value: string) {this.emojiName = value;}
+
+
 }

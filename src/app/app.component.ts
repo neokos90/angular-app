@@ -16,10 +16,24 @@ export class AppComponent implements OnInit {
   response: any;
   emojis: Emoji[] = [];
   emoji: Emoji;
-  name: string;
-  age: number;
+  searchText: string;
 
-  menuItems = ['Все', 'Любимые', 'Удалённые'];
+  menuItems = [
+    {
+      id: 0,
+      name: 'Удалённые'
+    },
+    {
+      id: 1,
+      name: 'Все'
+    },
+    {
+      id: 2,
+      name: 'Любимые'
+    }];
+
+    currentMenuItemName = this.menuItems[1].name;
+    currentMenuItem = this.menuItems[1].id;
  
   constructor(private httpService: HttpService){}
     

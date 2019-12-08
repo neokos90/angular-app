@@ -28,30 +28,30 @@
 
 
       <!-- table --> 
-        <table class="table table-bordered table-hover table-striped">
-          <tbody>
-            <tr *ngFor="let emoji of emojis | filter:searchText">
+      <table class="table table-bordered table-hover table-striped">
+        <tbody>
+          <tr *ngFor="let emoji of emojis | filter:searchText:'name'">
+            <td>
+              {{emoji.name}}
+            </td>
+            <td>
+              {{emoji.url}}
+            </td>
+            <td>
+              <img src="{{emoji.url}}" alt="Не удалось загрузить картинку" height="25" width="25"> 
+              <span class="large">
+                <img src="{{emoji.url}}" alt="{{emoji.name}}" class="large-image">
+              </span>
+            </td>
               <td>
-                {{emoji.name}}
+                <span><fa-icon [icon]="faAsterisk"></fa-icon></span>
               </td>
               <td>
-                {{emoji.url}}
+                <span><fa-icon [icon]="faTimes"></fa-icon></span>
               </td>
-              <td>
-                <img src="{{emoji.url}}" alt="Не удалось загрузить картинку" height="25" width="25"> 
-                <span class="large">
-                  <img src="{{emoji.url}}" alt="{{emoji.name}}" class="large-image">
-                </span>
-              </td>
-                <td>
-                  В избранное
-                </td>
-                <td>
-                  Удалить
-                </td>
-            </tr>
-          </tbody>
-        </table>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>

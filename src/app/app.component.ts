@@ -1,22 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-
-import { HttpService} from './http.service';
+import { LocalStorageService } from './local-storage.service'; 
 
 import {Emoji} from './emoji';
+
+import { faTimes, faAsterisk } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [HttpService]
+  providers: [LocalStorageService]
 })
 
 export class AppComponent implements OnInit { 
    
-  response: any;
   emojis: Emoji[] = [];
-  emoji: Emoji;
   searchText: string;
+  faTimes = faTimes;
+  faAsterisk = faAsterisk;
 
   menuItems = [
     {
@@ -35,45 +36,12 @@ export class AppComponent implements OnInit {
     currentMenuItemName = this.menuItems[1].name;
     currentMenuItem = this.menuItems[1].id;
  
-  constructor(private httpService: HttpService){}
+  constructor(private _localStorageService: LocalStorageService){}
     
   ngOnInit(){
-        
-      this.httpService.getData().subscribe((data) => {this.response = data;
-        console.log(this.response);
-        
-        for(let keyName in this.response){
-
-          console.log(keyName);
-          console.log(this.response[keyName]);
-
-          this.emoji = {
-            "name": String(keyName),
-            "url": String(this.response[keyName]),
-            "status": 1
-          };
-
-          this.emojis.push(this.emoji);
-
-        }    
-      // console.log(this.emojis);
-    }
-        );
-
-
+    this.emojis = this._localStorageService.storeOnLocalStorage();
+        // this.emojis = this._localStorageService.getData();
+    localStorage.setItem('local_em', JSON.stringify(this.emojis));
   }
-
-
-
+  
 }
-
-
-// export class AppComponent {
-//   title = 'Tour of Menues';
-//   menuList =   [
-//     new Menu(0, 'Все'),
-//     new Menu(1, 'Любимые'),
-//     new Menu(2, 'Удалённые'),
-//   ];
-//   myMenu = this.menuList[0];
-// }

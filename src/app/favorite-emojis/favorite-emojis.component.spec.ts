@@ -8,9 +8,9 @@ describe('FavoriteEmojisComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FavoriteEmojisComponent ]
+      declarations: [FavoriteEmojisComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

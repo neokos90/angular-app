@@ -25,15 +25,15 @@
           <img src="{{emoji.url}}" alt="{{emoji.name}}" class="large-image">
         </span>
       </td>
-      <td ng-click="styleCell={color: 'blue'}">
-        <span><a ng-style="styleCell">
-            <fa-icon [icon]="faAsterisk"></fa-icon>
-          </a></span>
+      <td>
+        <span>
+          <fa-icon [icon]="faAsterisk"></fa-icon>
+        </span>
       </td>
       <td>
-        <span><a (click)="deleteFromFavorite(emoji.name)">
-            <fa-icon [icon]="faTimes"></fa-icon>
-          </a></span>
+        <span>
+          <fa-icon [icon]="faTrashRestoreAlt"></fa-icon>
+        </span>
       </td>
     </tr>
   </tbody>

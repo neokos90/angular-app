@@ -4,57 +4,21 @@
     <!-- menu -->
     <div class="col-sm-4">
       <ul class="nav nav-pills flex-column">
-        <li *ngFor="let menuItem of menuItems" class="nav-item">
-          <a class="nav-link" href="#">{{menuItem.name}}</a> 
+        <li class="nav-item">
+          <a class="nav-link" routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Все</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="favorite" routerLinkActive="active">Любимые</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="delete" routerLinkActive="active">Удаленные</a>
         </li>
       </ul>
     </div>
 
     <div class="col-sm-8">
-
-      <!-- search -->
-
-      <div class="d-flex justify-content-between">
-          <div>
-              <h3>{{currentMenuItemName}}</h3>
-          </div>
-          <div>
-            <input type="text" class="form-control form-control-sm" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Поиск"/>
-          </div>     
-          
-        </div>
-      <!-- <search-comp [currentMenuItemName]="currentMenuItemName" [currentMenuItem]="currentMenuItem"></search-comp> -->
-                <!-- <input type="text" [(ngModel)]="name" />            -->
-
-
-      <!-- table --> 
-      <table class="table table-bordered table-hover table-striped">
-        <tbody>
-          <tr *ngFor="let emoji of emojis | filter:searchText:'name'">
-            <td>
-              {{emoji.name}}
-            </td>
-            <td>
-              {{emoji.url}}
-            </td>
-            <td>
-              <img src="{{emoji.url}}" alt="Не удалось загрузить картинку" height="25" width="25"> 
-              <span class="large">
-                <img src="{{emoji.url}}" alt="{{emoji.name}}" class="large-image">
-              </span>
-            </td>
-              <td>
-                <span><fa-icon [icon]="faAsterisk"></fa-icon></span>
-              </td>
-              <td>
-                <span><fa-icon [icon]="faTimes"></fa-icon></span>
-              </td>
-          </tr>
-        </tbody>
-      </table>
+      <!-- content -->
+      <router-outlet></router-outlet>
     </div>
   </div>
 </div>
-
-<!-- <p *ngIf="menuList.length > 3">There are many heroes!</p> -->
-

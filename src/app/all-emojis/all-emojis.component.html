@@ -13,25 +13,25 @@
 <table class="table table-bordered table-hover table-striped">
   <tbody>
     <tr *ngFor="let emoji of emojis | filter:searchText:'name'">
-      <td>
+      <td *ngIf="emoji.status != 0">
         {{emoji.name}}
       </td>
-      <td>
+      <td *ngIf="emoji.status != 0">
         {{emoji.url}}
       </td>
-      <td>
+      <td *ngIf="emoji.status != 0">
         <img src="{{emoji.url}}" alt="Не удалось загрузить картинку" height="25" width="25">
         <span class="large">
           <img src="{{emoji.url}}" alt="{{emoji.name}}" class="large-image">
         </span>
       </td>
-      <td ng-click="styleCell={color: 'blue'}">
-        <span><a ng-style="styleCell">
+      <td *ngIf="emoji.status != 0">
+        <span><a (click)="addToFavorite(emoji.name)">
             <fa-icon [icon]="faAsterisk"></fa-icon>
           </a></span>
       </td>
-      <td>
-        <span><a (click)="deleteFromFavorite(emoji.name)">
+      <td *ngIf="emoji.status != 0">
+        <span><a (click)="deleteFromAll(emoji.name)">
             <fa-icon [icon]="faTimes"></fa-icon>
           </a></span>
       </td>

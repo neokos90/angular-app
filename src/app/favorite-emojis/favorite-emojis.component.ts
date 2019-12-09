@@ -27,4 +27,15 @@ export class FavoriteEmojisComponent implements OnInit {
     this.emojis = this._httpService.getDataFromAPI();
   }
 
+  deleteFromFavorite(name: string) {
+
+    this.emojis.forEach((item) => {
+      if(item.name == name){
+        item.status = 1;
+      }
+    });
+
+    return this.emojis;
+  }
+
 }

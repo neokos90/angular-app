@@ -26,8 +26,9 @@
         </span>
       </td>
       <td>
-        <span>
-          <fa-icon [icon]="faTimes"></fa-icon>
+        <span><a (click)="deleteFromFavorite(emoji.name)">
+            <fa-icon [icon]="faTimes"></fa-icon>
+        </a>         
         </span>
       </td>
     </tr>

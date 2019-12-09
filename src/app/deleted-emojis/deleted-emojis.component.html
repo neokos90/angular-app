@@ -26,13 +26,15 @@
         </span>
       </td>
       <td>
-        <span>
-          <fa-icon [icon]="faAsterisk"></fa-icon>
+        <span><a (click)="addToFavorite(emoji.name)">
+            <fa-icon [icon]="faAsterisk"></fa-icon>
+          </a>
         </span>
       </td>
       <td>
-        <span>
-          <fa-icon [icon]="faTrashRestoreAlt"></fa-icon>
+        <span><a (click)="restoreToAll(emoji.name)">
+            <fa-icon [icon]="faTrashRestoreAlt"></fa-icon>
+          </a>
         </span>
       </td>
     </tr>

@@ -27,13 +27,26 @@ export class AllEmojisComponent implements OnInit {
     this.emojis = this._httpService.getDataFromAPI();
   }
 
-  deleteFromFavorite(name: string) {
-    console.log(name);
+  deleteFromAll(name: string) {
+
+    this.emojis.forEach((item) => {
+      if(item.name == name){
+        item.status = 0;
+      }
+    });
+
+    return this.emojis;
   }
 
   addToFavorite(name: string) {
 
-    this.state = true;
+    this.emojis.forEach((item) => {
+      if(item.name == name){
+        item.status = 2;
+      }
+    });
+    
+    return this.emojis;
   }
 
 }
